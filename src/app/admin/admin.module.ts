@@ -12,8 +12,16 @@ import {MatButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
 import {MatIcon} from "@angular/material/icon";
 import {MatOption, MatSelect} from "@angular/material/select";
-import {MatCard} from "@angular/material/card";
+import {
+  MatCard, MatCardActions, MatCardAvatar,
+  MatCardContent, MatCardFooter,
+  MatCardHeader,
+  MatCardImage, MatCardLgImage,
+  MatCardSmImage,
+  MatCardTitle
+} from "@angular/material/card";
 import {MatDivider} from "@angular/material/divider";
+import { UpdateTicketComponent } from './components/update-ticket/update-ticket.component';
 
 
 @NgModule({
@@ -21,7 +29,8 @@ import {MatDivider} from "@angular/material/divider";
     AdminComponent,
     DashboardComponent,
     PostTicketComponent,
-    PostTicketCategoryComponent
+    PostTicketCategoryComponent,
+    UpdateTicketComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +45,16 @@ import {MatDivider} from "@angular/material/divider";
     MatSelect,
     MatOption,
     MatCard,
-    MatDivider
+    MatDivider,
+    MatCardHeader,
+    MatCardImage,
+    MatCardSmImage,
+    MatCardTitle,
+    MatCardContent,
+    MatCardActions,
+    MatCardFooter,
+    MatCardAvatar,
+    MatCardLgImage
   ]
 })
 export class AdminModule { }

@@ -49,8 +49,8 @@ export class DashboardComponent implements OnInit{
 
   deleteTicket( ticketId: any){
     this.adminService.deleteTicket(ticketId).subscribe(res=>{
-      if(res.body == null){
-        this.snackBar.open('Product deleted Successfully!', 'Close', {
+      if(res == null){
+        this.snackBar.open('Ticket deleted Successfully!', 'Close', {
           duration: 5000
         });
         this.getAllTickets();

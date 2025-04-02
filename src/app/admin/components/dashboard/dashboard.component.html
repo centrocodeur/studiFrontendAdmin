@@ -12,11 +12,15 @@
 <div class="product-list">
 
 
+  <mat-card class="product-card" *ngFor="let ticket of tickets" style="width: 300px; height: 490px; justify-items: center">
+      <mat-card-header>
+        <mat-card-title>
+          <h2 class="product-name">{{ticket.title}}</h2>
+        </mat-card-title>
+      </mat-card-header>
 
-
-  <mat-card class="product-card" *ngFor="let ticket of tickets">
-    <div class="product-image">
-      <img [src]="ticket.processedImg" alt="product-image">
+    <div class="product-image" style="width: 100%;">
+      <img [src]="ticket.processedImg" alt="product-image" mat-card-lg-image style="padding: 10px; width: 300px; height: 460px;">
     </div>
     <div class="product-details">
       <h2 class="product-name">{{ticket.title}}</h2>
@@ -33,13 +37,15 @@
           <span class="info-value">{{ticket.categoryName}}</span>
         </div>
       </div>
+
       <mat-divider></mat-divider>
-      <div class="actions">
+
+      <div class="actions" >
         <button mat-raised-button color="primary" class="update-button"
                 [routerLink]="'/admin/faq/' + ticket.id">FAQ</button>
 
         <button mat-raised-button color="accent" class="update-button"
-                [routerLink]="'/admin/product/' + ticket.id">Update</button>
+                [routerLink]="'/admin/ticket/' + ticket.id">Update</button>
 
         <button mat-raised-button color="warn" class="delete-button" (click)="deleteTicket(ticket.id)">
           Delete
@@ -49,4 +55,6 @@
     </div>
 
   </mat-card>
+
+
 </div>
