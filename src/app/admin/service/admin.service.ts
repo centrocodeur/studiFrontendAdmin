@@ -3,8 +3,9 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UserStorageService} from "../../services/storage/user-storage.service";
 
-const BASIC_URL= "http://localhost:8080/";
+//const BASIC_URL= "http://localhost:8080/";
 //const BASIC_URL= "https://studiprojetbackend-production.up.railway.app/";
+const BASIC_URL= "https://studi-jo-backend-production.up.railway.app/";
 @Injectable({
   providedIn: 'root'
 })
