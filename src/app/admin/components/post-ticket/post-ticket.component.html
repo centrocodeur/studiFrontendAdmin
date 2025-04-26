@@ -2,7 +2,7 @@
   <h2>Add Ticket</h2>
   <form [formGroup]="ticketForm" (ngSubmit)="addTicket()">
 
-    <div class="file-upload-container">
+   <!-- <div class="file-upload-container">
       <label class="file-upload-label">
         <span>Select a File</span>
         <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
@@ -13,7 +13,19 @@
           <img [src]="imagePreview" alt="Selected image" class="preview-image">
         </div>
       </div>
-    </div>
+    </div>-->
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label> Select competition </mat-label>
+      <mat-select formControlName ="competitionId" name="competitionId">
+        <mat-option *ngFor="let competition of listOfCompetitions" [value]="competition.id">
+          {{competition.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="ticketForm.get('competitionId')?.hasError('required')">
+        This Input is required
+      </mat-error>
+    </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-field">
       <mat-label> Select a Category </mat-label>

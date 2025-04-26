@@ -3,9 +3,9 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {UserStorageService} from "../../services/storage/user-storage.service";
 
-//const BASIC_URL= "http://localhost:8080/";
+const BASIC_URL= "http://localhost:8080/";
 //const BASIC_URL= "https://studiprojetbackend-production.up.railway.app/";
-const BASIC_URL= "https://studi-jo-backend-production.up.railway.app/";
+//const BASIC_URL= "https://studi-jo-backend-production.up.railway.app/";
 @Injectable({
   providedIn: 'root'
 })
@@ -51,6 +51,8 @@ export class AdminService {
   }
 
 
+
+
   updateTicket(ticketId: any, ticketDto:any): Observable<any>{
     return  this.http.put(BASIC_URL+ `api/admin/ticket/${ticketId}`, ticketDto, {
       headers: this.createAuthorizationHeaders(),
@@ -59,6 +61,32 @@ export class AdminService {
 
   deleteTicket(ticketId: any): Observable<any>{
     return  this.http.delete(BASIC_URL+ `api/admin/ticket/${ticketId}`,  {
+      headers: this.createAuthorizationHeaders(),
+    })
+  }
+
+
+
+  getAllCompetitions(): Observable<any>{
+    return  this.http.get(BASIC_URL+ 'api/admin/competitions', {
+      headers: this.createAuthorizationHeaders(),
+    })
+  }
+
+  addCompetition(competitionDto: any): Observable<any>{
+    return  this.http.post(BASIC_URL+ 'api/admin/competition', competitionDto, {
+      headers: this.createAuthorizationHeaders(),
+    })
+  }
+
+  updateCompetition(competitionId: any, competitionDto:any): Observable<any>{
+    return  this.http.put(BASIC_URL+ `api/admin/competition/${competitionId}`, competitionDto, {
+      headers: this.createAuthorizationHeaders(),
+    })
+  }
+
+  deleteCompetition(competitionId: any): Observable<any>{
+    return  this.http.delete(BASIC_URL+ `api/admin/competition/${competitionId}`,  {
       headers: this.createAuthorizationHeaders(),
     })
   }

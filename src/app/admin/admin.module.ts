@@ -22,6 +22,18 @@ import {
 } from "@angular/material/card";
 import {MatDivider} from "@angular/material/divider";
 import { UpdateTicketComponent } from './components/update-ticket/update-ticket.component';
+import { PosteComponent } from './components/poste/poste.component';
+import { PostCompetitionComponent } from './components/post-competition/post-competition.component';
+import { CompetitionComponent } from './components/competition/competition.component';
+import {
+  MatCell,
+  MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatTable
+} from "@angular/material/table";
 
 
 @NgModule({
@@ -30,7 +42,10 @@ import { UpdateTicketComponent } from './components/update-ticket/update-ticket.
     DashboardComponent,
     PostTicketComponent,
     PostTicketCategoryComponent,
-    UpdateTicketComponent
+    UpdateTicketComponent,
+    PosteComponent,
+    PostCompetitionComponent,
+    CompetitionComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +69,17 @@ import { UpdateTicketComponent } from './components/update-ticket/update-ticket.
     MatCardActions,
     MatCardFooter,
     MatCardAvatar,
-    MatCardLgImage
+    MatCardLgImage,
+    MatTable,
+    MatColumnDef,
+    MatHeaderCell,
+    MatHeaderCellDef,
+    MatCell,
+    MatCellDef,
+    MatHeaderRow,
+    MatHeaderRowDef,
+    MatRow,
+    MatRowDef
   ]
 })
 export class AdminModule { }

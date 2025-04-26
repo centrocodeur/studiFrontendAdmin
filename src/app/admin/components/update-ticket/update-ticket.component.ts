@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router, ActivatedRoute} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -9,12 +9,14 @@ import {AdminService} from "../../service/admin.service";
   templateUrl: './update-ticket.component.html',
   styleUrl: './update-ticket.component.css'
 })
-export class UpdateTicketComponent {
+export class UpdateTicketComponent implements OnInit{
 
 
   ticketId= this.activatedRoute.snapshot.params['ticketId']
   ticketForm: FormGroup;
   listOfCategories : any[];
+  listOfCompetitions : any[];
+
   selectedFile: File|null;
   imagePreview: string| ArrayBuffer | null;
   existingImage: string|null=null;
@@ -47,17 +49,26 @@ export class UpdateTicketComponent {
   ngOnInit(): void{
     this.ticketForm= this.fb.group({
       categoryId: [null, [Validators.required]],
-      name: [null, [Validators.required]],
+     // name: [null, [Validators.required]],
       price: [null,[Validators.required]],
-      description: [null,[Validators.required]]
+      title: [null, [Validators.required]],
+      description: [null,[Validators.required]],
+      competitionId: [null, [Validators.required]],
     });
     this.getAllCategories();
+    this.getAllCompetitions();
     this.getProductById();
   }
 
   getAllCategories(){
     this.adminService.getAllAllTicketCategories().subscribe(res=>{
       this.listOfCategories = res;
+    })
+  }
+
+  getAllCompetitions(){
+    this.adminService.getAllCompetitions().subscribe(res=>{
+      this.listOfCompetitions = res;
     })
   }
 
@@ -74,13 +85,14 @@ export class UpdateTicketComponent {
     if(this.ticketForm.valid){
       const formData: FormData = new FormData();
 
-      if (this.existingImage && this.selectedFile){
+      /*if (this.existingImage && this.selectedFile){
         formData.append('img', this.selectedFile);
-      }
+      }*/
 
-
+      formData.append('competitionId', this.ticketForm.get('competitionId').value);
       formData.append('categoryId', this.ticketForm.get('categoryId').value);
-      formData.append('name', this.ticketForm.get('name').value);
+      //formData.append('name', this.ticketForm.get('name').value);
+      formData.append('title', this.ticketForm.get('title').value);
       formData.append('description', this.ticketForm.get('description').value);
       formData.append('price', this.ticketForm.get('price').value);
 
