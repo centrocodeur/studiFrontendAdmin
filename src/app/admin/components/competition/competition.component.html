@@ -1,0 +1,106 @@
+<div>
+    <h1 style="align-self: center">Liste des compétitions</h1>
+</div>
+
+<ng-container>
+  <mat-table #basicTable [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color:#003973; ">id</mat-header-cell>
+      <mat-cell *matCellDef="let competition">{{competition.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color:#003973; ">Name</mat-header-cell>
+      <mat-cell *matCellDef="let competition">{{competition.name}}</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="compDate">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color:#003973; ">Date</mat-header-cell>
+      <mat-cell *matCellDef="let competition">{{competition.compDate}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="compTime">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color:#003973; ">Heure</mat-header-cell>
+      <mat-cell *matCellDef="let competition">{{competition.compTime}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="site">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color:#003973; ">Site</mat-header-cell>
+      <mat-cell *matCellDef="let competition">{{competition.site}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="img">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color:#003973;">Img</mat-header-cell>
+      <mat-cell *matCellDef="let competition">
+        <div class="product-image" style="width: 100%;">
+          <img [src]="competition.processedImg" alt="product-image" mat-card-lg-image style="padding: 10px; width: 100px; height: 80px;">
+        </div>
+      </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color:#003973; "></mat-header-cell>
+      <mat-cell *matCellDef="let competition">
+      <button mat-raised-button color="warn" class="delete-button" (click)="deleteCompetition(competition.id)">
+        Delete
+      </button>
+
+
+      </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row
+      *matHeaderRowDef="['id', 'name', 'compDate', 'compTime', 'site', 'img']">
+    </mat-header-row>
+
+    <mat-row
+      *matRowDef="let competition; columns: ['id', 'name', 'compDate', 'compTime', 'site', 'img']">
+    </mat-row>
+  </mat-table>
+
+
+</ng-container>
+
+
+<!--
+<table mat-table [dataSource]="competitions" class="mat-elevation-z8" >
+
+   <ng-container matColumnDef ="id">
+     <th mat-header-cell *matHeaderCellDef>ID</th>
+     <td mat-cell *matCellDef="let competition">{{competition.id}}</td>
+   </ng-container>
+
+  <ng-container matColumnDef ="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let competition">{{competition.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef ="compDate">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let competition">{{competition.compDate}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef ="compTime">
+    <th mat-header-cell *matHeaderCellDef>Heure</th>
+    <td mat-cell *matCellDef="let competition">{{competition.compTime}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef ="site">
+    <th mat-header-cell *matHeaderCellDef>Site</th>
+    <td mat-cell *matCellDef="let competition">{{competition.site}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+</table>
+
+-->
+
+
