@@ -13,6 +13,7 @@ export class PostTicketComponent implements OnInit{
 
   ticketForm: FormGroup;
   listOfCategories : any[];
+  listOfCompetitions: any[];
   selectedFile: File|null;
   imagePreview: string| ArrayBuffer | null;
 
@@ -42,21 +43,33 @@ export class PostTicketComponent implements OnInit{
       categoryId: [null, [Validators.required]],
       title: [null, [Validators.required]],
       price: [null,[Validators.required]],
-      description: [null,[Validators.required]]
+      description: [null,[Validators.required]],
+      competitionId: [null, [Validators.required]],
     });
     this.getAllCategories();
+    this.getAllCompetitions();
   }
 
   getAllCategories(){
     this.adminService.getAllAllTicketCategories().subscribe(res=>{
       this.listOfCategories = res;
     })
+
+    console.log(this.listOfCategories)
+  }
+
+  getAllCompetitions(){
+    this.adminService.getAllCompetitions().subscribe(res=>{
+      this.listOfCompetitions = res;
+    })
+    console.log(this.listOfCompetitions);
   }
 
   addTicket():void{
     if(this.ticketForm.valid){
       const formData: FormData = new FormData();
-      formData.append('img', this.selectedFile);
+      //formData.append('img', this.selectedFile);
+      formData.append('competitionId', this.ticketForm.get('competitionId').value);
       formData.append('categoryId', this.ticketForm.get('categoryId').value);
       formData.append('title', this.ticketForm.get('title').value);
       formData.append('description', this.ticketForm.get('description').value);

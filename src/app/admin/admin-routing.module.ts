@@ -5,13 +5,17 @@ import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {PostTicketCategoryComponent} from "./components/dashboard/post-ticket-category/post-ticket-category.component";
 import {PostTicketComponent} from "./components/post-ticket/post-ticket.component";
 import {UpdateTicketComponent} from "./components/update-ticket/update-ticket.component";
+import {PostCompetitionComponent} from "./components/post-competition/post-competition.component";
+import {CompetitionComponent} from "./components/competition/competition.component";
 
 const routes: Routes = [
   { path: '', component: AdminComponent },
   { path: 'dashboard', component: DashboardComponent },
   {path: 'category', component: PostTicketCategoryComponent},
   {path: 'ticket', component: PostTicketComponent},
-  {path: 'ticket/:ticketId', component: UpdateTicketComponent}
+  {path: 'ticket/:ticketId', component: UpdateTicketComponent},
+  {path: 'postcompetition', component: PostCompetitionComponent},
+  {path: 'competitions', component: CompetitionComponent},
 ];
 
 @NgModule({

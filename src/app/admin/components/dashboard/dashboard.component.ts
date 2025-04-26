@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit{
         this.tickets.push(element);
       })
     })
+    console.log(this.tickets)
   }
 
 
