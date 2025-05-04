@@ -34,6 +34,8 @@ import {
   MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
   MatTable
 } from "@angular/material/table";
+import { AnalyticsComponent } from './components/analytics/analytics.component';
+import { OrderByStatusComponent } from './components/analytics/order-by-status/order-by-status.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import {
     UpdateTicketComponent,
     PosteComponent,
     PostCompetitionComponent,
-    CompetitionComponent
+    CompetitionComponent,
+    AnalyticsComponent,
+    OrderByStatusComponent
   ],
   imports: [
     CommonModule,
