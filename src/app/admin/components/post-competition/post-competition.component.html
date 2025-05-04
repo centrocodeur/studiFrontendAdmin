@@ -41,6 +41,14 @@
       </mat-error>
     </mat-form-field>
 
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label> Ville de la competion</mat-label>
+      <textarea matInput  placeholder="Ville" formControlName="city"></textarea>
+      <mat-error *ngIf="competitionForm.get('city')?.hasError('required')">
+        This Input is required
+      </mat-error>
+    </mat-form-field>
+
 
     <mat-form-field appearance="outline" class="form-field">
       <mat-label> Site de la compétition</mat-label>
@@ -50,7 +58,7 @@
       </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Ajouter </button>
+    <button mat-raised-button color="primary" type="submit">Créer </button>
   </form>
 
 </div>
