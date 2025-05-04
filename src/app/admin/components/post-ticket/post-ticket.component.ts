@@ -77,7 +77,7 @@ export class PostTicketComponent implements OnInit{
 
       this.adminService.addTicket(formData).subscribe((res)=>{
         if(res.id!=null){
-          this.snackBar.open('Product posted Successfully!', 'Close',{
+          this.snackBar.open('Ticket crée avec succès!', 'Fermer',{
             duration: 5000
           });
           this.router.navigateByUrl('/admin/dashboard');

@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Add Ticket</h2>
+  <h2>Créer un ticket</h2>
   <form [formGroup]="ticketForm" (ngSubmit)="addTicket()">
 
    <!-- <div class="file-upload-container">
@@ -16,26 +16,26 @@
     </div>-->
 
     <mat-form-field appearance="outline" class="form-field">
-      <mat-label> Select competition </mat-label>
+      <mat-label> Choisir compétition </mat-label>
       <mat-select formControlName ="competitionId" name="competitionId">
         <mat-option *ngFor="let competition of listOfCompetitions" [value]="competition.id">
           {{competition.name}}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="ticketForm.get('competitionId')?.hasError('required')">
-        This Input is required
+        Champs obligatoire
       </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="form-field">
-      <mat-label> Select a Category </mat-label>
+      <mat-label> Choisir une Catégorie </mat-label>
       <mat-select formControlName ="categoryId" name="categoryId">
         <mat-option *ngFor="let category of listOfCategories" [value]="category.id">
           {{category.name}}
         </mat-option>
       </mat-select>
       <mat-error *ngIf="ticketForm.get('categoryId')?.hasError('required')">
-        This Input is required
+        Champs obligatoire
       </mat-error>
     </mat-form-field>
 
@@ -43,7 +43,7 @@
       <mat-label> Titre</mat-label>
       <input matInput type="text" placeholder="Titre" formControlName="title">
       <mat-error *ngIf="ticketForm.get('title')?.hasError('required')">
-        This Input is required
+        Champs obligatoire
       </mat-error>
     </mat-form-field>
 
@@ -51,7 +51,7 @@
       <mat-label> Prix</mat-label>
       <input matInput type="number" placeholder="Price" formControlName="price">
       <mat-error *ngIf="ticketForm.get('price')?.hasError('required')">
-        This Input is required
+        Champs obligatoire
       </mat-error>
     </mat-form-field>
 
@@ -59,11 +59,11 @@
       <mat-label> Description</mat-label>
       <textarea matInput  placeholder="Description" formControlName="description"></textarea>
       <mat-error *ngIf="ticketForm.get('description')?.hasError('required')">
-        This Input is required
+        Champs obligatoire
       </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Add ticket </button>
+    <button mat-raised-button color="primary" type="submit">Créer </button>
   </form>
 
 </div>
