@@ -12,7 +12,6 @@ import {AdminService} from "../../service/admin.service";
 export class PostCompetitionComponent implements OnInit{
 
   competitionForm: FormGroup;
- // listOfCategories : any[];
   selectedFile: File|null;
   imagePreview: string| ArrayBuffer | null;
 
@@ -42,19 +41,13 @@ export class PostCompetitionComponent implements OnInit{
       name: [null, [Validators.required]],
       date: [null, [Validators.required]],
       time: [null,[Validators.required]],
-      site: [null,[Validators.required]]
+      site: [null,[Validators.required]],
+      city: [null,[Validators.required]]
     });
     //this.getAllCategories();
   }
 
-  /*
-  getAllCategories(){
-    this.adminService.getAllAllTicketCategories().subscribe(res=>{
-      this.listOfCategories = res;
-    })
-  }
 
-   */
 
   addCompetition():void{
     if(this.competitionForm.valid){
@@ -64,10 +57,11 @@ export class PostCompetitionComponent implements OnInit{
       formData.append('compDate', this.competitionForm.get('date').value);
       formData.append('compTime', this.competitionForm.get('time').value);
       formData.append('site', this.competitionForm.get('site').value);
+      formData.append('city', this.competitionForm.get('city').value);
 
       this.adminService.addCompetition(formData).subscribe((res)=>{
         if(res.id!=null){
-          this.snackBar.open('Product posted Successfully!', 'Close',{
+          this.snackBar.open('Competition créée avec succès!', 'Fermer',{
             duration: 5000
           });
           this.router.navigateByUrl('/admin/competitions');

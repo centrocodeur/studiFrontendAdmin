@@ -32,12 +32,12 @@ export class PostTicketCategoryComponent implements OnInit{
     if(this.categoryForm.valid){
       this.adminService.addTicketCategory(this.categoryForm.value).subscribe((res) =>{
         if(res.id!=null){
-          this.snackBar.open('Category Posted Successfully!', 'close',{
+          this.snackBar.open('Category créée avec succès!', 'Fermer',{
             duration: 5000
           });
           this.router.navigateByUrl('/admin/dashboard');
         }else{
-          this.snackBar.open(res.messages, 'Close', {
+          this.snackBar.open(res.messages, 'Fermer', {
             duration: 5000, panelClass:'error-snackbar'
           });
         }

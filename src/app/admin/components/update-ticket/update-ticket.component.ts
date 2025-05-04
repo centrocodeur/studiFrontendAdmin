@@ -98,7 +98,7 @@ export class UpdateTicketComponent implements OnInit{
 
       this.adminService.updateTicket(this.ticketId, formData).subscribe((res)=>{
         if(res.id!=null){
-          this.snackBar.open('ticket updated Successfully!', 'Close',{
+          this.snackBar.open('ticket modifié avec succès!', 'Close',{
             duration: 5000
           });
           this.router.navigateByUrl('/admin/dashboard');

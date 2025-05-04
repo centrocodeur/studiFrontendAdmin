@@ -33,16 +33,7 @@ export class CompetitionComponent implements OnInit{
       title: [null, [Validators.required]]
     })
 
-    /*this.adminService.getAllCompetitions().subscribe({
-      next: data => {
-        this.dataSource = data;
-        this.dataSource= new MatTableDataSource(this.dataSource);
-        this.dataSource.paginatoir= this.paginatoir;
-        this.dataSource.sort = this.sort;
-      },
-      error: err => {console.log(err)}
 
-    })*/
 
 
   }
